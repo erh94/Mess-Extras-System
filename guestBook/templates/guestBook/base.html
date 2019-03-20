@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mess@iitb</title>
+  
+  {%block pagestyle%}
+
+  {% endblock %}
+  <link rel="stylesheet" type="text/css" href="{% static 'guestBook/semantic.min.css' %}">
+
+</head>
+
+<body>
+  {% block navbar %}
+  <div class="ui fixed inverted teal menu">
+    <div class="ui container">
+
+      <a href="/mess/home/" class="header item">
+        <i class="home icon"></i>
+      </a>
+
+      <div class="ui grid container">
+        <div class="ui middle aligned column">
+          <h3 class="ui inverted header">
+            Hostel Affairs, IIT Bombay
+          </h3>
+        </div>
+      </div>
+      <div class="right menu">
+
+        {% if user.is_authenticated == 'True' %}
+        <div class="item">
+          <a class="ui inverted button">Logout</a>
+        </div>
+        {% endif %}
+
+      </div>
+
+
+
+    </div>
+  </div>
+
+  {% endblock %}
+
+
+{%block secondarymenu%}
+{%endblock%}
+
+
+  {% block content %}<br>
+  <h1> {{data}} </h1>
+  <br>
+  <h1>{{user}}</h1>
+  <!-- <h1> {{data.json}} </h1> -->
+
+  {% endblock %}
+
+</body>
+
+<script src="{% static 'guestBook/jquery-3.1.1.min.js' %}"></script>
+<script src="{% static 'guestBook/semantic.min.js' %}"></script>
+
+</html>
